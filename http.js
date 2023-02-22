@@ -1,3 +1,7 @@
 const http= require('http');
 const server = http.createServer();
-server.listen(9000);
+server.on('connection',()=>{
+	console.log('new devise connected lol')
+})
+server.listen(3000);
+console.log("listining on port 3000")
