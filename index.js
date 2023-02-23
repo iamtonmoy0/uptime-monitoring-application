@@ -1,5 +1,6 @@
 // dependencies 
 const http = require('http');
+const url = require('url');
 
 // module scaffolding
 const app ={};
@@ -20,7 +21,19 @@ app.createServer=()=>{
 // req and resp handler
 
 app.handleReqRes=(req,res)=> {
-	res.end('hello world heheheh');
+// parser
+const parseUrl = url.parse(req.url,true);
+const path = parseUrl.pathname;
+const trimmedPath =path.replace(/^\/+|\/+$/g,'');
+const method= req.method.toLowerCase();
+const queryStringObject= parseUrl.query;
+const headersObject = req.headers;
+
+
+
+
+	res.end('hello world ');
+
 };
 
 // start server 
