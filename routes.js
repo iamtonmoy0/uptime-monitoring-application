@@ -2,7 +2,7 @@
  
  
  const routes={
-	'sample':sampleHandler,
+	sample:sampleHandler,
 };
 
 module.exports=routes;
