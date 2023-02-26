@@ -1,6 +1,7 @@
 // dependencies 
 const http = require('http');
 const url = require('url');
+const {StringDecoder}= require('string_decoder')
 
 // module scaffolding
 const app ={};
@@ -29,10 +30,22 @@ const method= req.method.toLowerCase();
 const queryStringObject= parseUrl.query;
 const headersObject = req.headers;
 
+const Decoder= new StringDecoder('utf-8')
+let realData ='';
+
+req.on('data',(buffer)=>{
+	realData +=Decoder.write(buffer);
+
+});
+req.on('end',()=>{
+	realData+=Decoder.end();
+	console.log(realData)
+	res.end("hello")
+});
 
 
 
-	res.end('hello world ');
+	
 
 };
 
