@@ -15,7 +15,9 @@ app.config ={
 app.createServer=()=>{
 	const server =http.createServer(app.handleReqRes);
 	server.listen(app.config.port,()=>{
-		console.log(`environment variable is ${process.env.NODE_ENV}`);
+
+		
+		// console.log(`environment variable is ${process.env.NODE_ENV}`);
 		console.log(`listening to port ${app.config.port}`);
 	});
 };
