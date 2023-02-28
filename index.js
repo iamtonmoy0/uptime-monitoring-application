@@ -6,10 +6,8 @@ const {req_resp_handler}=require('./helpers/req_resp_handler')
 // module scaffolding
 const app ={};
 
-//  server config
-app.config ={
-	port:3000,
-} ;
+
+
 
 // create server
 app.createServer=()=>{
