@@ -26,7 +26,15 @@ const requestProperties={
 const Decoder= new StringDecoder('utf-8')
 let realData ='';
 const chosenHandler=routes[trimmedPath] ? routes[trimmedPath]:notFoundHandler;
-chosenHandler(requestProperties,(statusCode,payload)=>{
+
+req.on('data',(buffer)=>{
+	realData +=Decoder.write(buffer);
+
+});
+req.on('end',()=>{
+	realData+=Decoder.end();
+
+	chosenHandler(requestProperties,(statusCode,payload)=>{
 	statusCode=typeof(statusCode)=== 'number'? statusCode:500;
 	payload=typeof(payload)==='object'? payload :{};
 	const payloadString=JSON.stringify(payload);
@@ -34,14 +42,9 @@ chosenHandler(requestProperties,(statusCode,payload)=>{
 	res.writeHead(statusCode);
 	res.end(payloadString);
 
-})
-req.on('data',(buffer)=>{
-	realData +=Decoder.write(buffer);
-
 });
-req.on('end',()=>{
-	realData+=Decoder.end();
-	console.log(realData)
+
+	// response handle
 	res.end("hello")
 });
 };
