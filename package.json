@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/iamtonmoy0/uptime-monitoring-application.git",
-  "author": "iamtonmoy0 <tonmoy2code@gmail.com>",
-  "license": "MIT"
+  "author": "iamtonmoy0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "nodemon": "^3.0.1"
+  }
 }
