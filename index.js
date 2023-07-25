@@ -1,13 +1,14 @@
 /*
-*Title: Uptime-Monitoring-Application
-*Description:A RESTFul API to monitor up/down time of user defined links
-*Author:Tonmoy(github.com/iamtonmoy0)
-*Date: 25-07-2023
+* Title: Uptime-Monitoring-Application
+* Description:A RESTFul API to monitor up/down time of user defined links
+* Author:Tonmoy(github.com/iamtonmoy0)
+* Date: 25-07-2023
 */
 
 //dependencies
-const http=require('http')
-require('colors')
+const http=require('http');
+require('colors');
+const {handleReqRes}=require('./helpers/handleReqRes')
 
 //  app object -scaffold
 const app={}
@@ -22,11 +23,6 @@ app.createServer=()=>{
 	server.listen(app.config.port,()=>{console.log(`App is listening on port : ${app.config.port}`.yellow.bold)})
 }
 // handle request and response
-app.handleReqRes=(req,res)=>{
-	//sending response
-	res.end('hello world')
-
-}
-
+app.handleReqRes=
 // starting the server
  app.createServer()
