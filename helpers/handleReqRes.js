@@ -23,7 +23,7 @@ handler.handleReqRes=(req,res)=>{
     const queryStringObject = parsedUrl.query;
     const headersObject = req.headers;
 
-    const requestProperty={
+    const requestProperties={
 	parsedUrl,
 	path,
 	trimmedPath,
@@ -37,7 +37,7 @@ handler.handleReqRes=(req,res)=>{
 
     const chosenHandler=routes[trimmedPath]? routes[trimmedPath] : notFoundHandler;
 
-     chosenHandler(requestProperties, (statusCode, payload) => {
+     chosenHandler(requestProperties,(statusCode, payload) => {
         statusCode = typeof statusCode === 'number' ? statusCode : 500;
         payload = typeof payload === 'object' ? payload : {};
 

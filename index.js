@@ -23,6 +23,6 @@ app.createServer=()=>{
 	server.listen(app.config.port,()=>{console.log(`App is listening on port : ${app.config.port}`.yellow.bold)})
 }
 // handle request and response
-app.handleReqRes=
+app.handleReqRes=handleReqRes;
 // starting the server
  app.createServer()
