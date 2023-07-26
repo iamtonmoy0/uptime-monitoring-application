@@ -9,6 +9,7 @@
 const http=require('http');
 require('colors');
 const {handleReqRes}=require('./helpers/handleReqRes')
+const environment=require('./helpers/environment')
 
 //  app object -scaffold
 const app={}
@@ -20,7 +21,7 @@ app.config={
 // create server
 app.createServer=()=>{
 	const server=http.createServer(app.handleReqRes)
-	server.listen(app.config.port,()=>{console.log(`App is listening on port : ${app.config.port}`.yellow.bold)})
+	server.listen(environment.port,()=>{console.log(`App is listening on port : ${environment.port}`.yellow.bold)})
 }
 // handle request and response
 app.handleReqRes=handleReqRes;

@@ -6,7 +6,8 @@
   "author": "iamtonmoy0",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "NODE_ENV=staging nodemon index.js",
+    "production":"NODE_ENV=production nodemon index.js"
   },
   "dependencies": {
     "colors": "^1.4.0",
