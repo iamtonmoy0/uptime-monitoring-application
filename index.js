@@ -21,9 +21,9 @@ app.config={
 }
 //test 
 //TODO: need to clear 
-// data.create('test','newFile',{name:"db"},(err)=>{
-// 	console.log(err)
-// })
+data.read('test','newFile',(err,data)=>{
+	console.log(err,data)
+})
 
 // create server
 app.createServer=()=>{
