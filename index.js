@@ -8,8 +8,9 @@
 //dependencies
 const http=require('http');
 require('colors');
-const {handleReqRes}=require('./helpers/handleReqRes')
-const environment=require('./helpers/environment')
+const {handleReqRes}=require('./helpers/handleReqRes');
+const data = require('./lib/data');
+const environment=require('./helpers/environment');
 
 //  app object -scaffold
 const app={}
@@ -18,6 +19,12 @@ const app={}
 app.config={
 	port:3000,
 }
+//test 
+//TODO: need to clear 
+// data.create('test','newFile',{name:"db"},(err)=>{
+// 	console.log(err)
+// })
+
 // create server
 app.createServer=()=>{
 	const server=http.createServer(app.handleReqRes)
